@@ -41,6 +41,13 @@ const registerController=async (req,res)=>{
                 message:'User not found'
             })
         }
+        // check role
+        if(existingUser.role!==req.body.role){
+            return res.status(500).send({
+                success:false,
+                message:'role does not match',
+            })
+        }
         // Compare password
         const comparePassword=bcrypt.compare(req.body.password,existingUser.password);
         if(!comparePassword){
