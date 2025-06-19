@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "nodemon server.js",
-    "client":"npm run dev --prefix ./client",
+    "client": "npm run dev --prefix ./client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
@@ -21,6 +21,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.15.1",
     "morgan": "^1.10.0",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "react-toastify": "^11.0.5"
   }
 }

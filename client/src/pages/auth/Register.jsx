@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import  Form  from '../../components/Shared/Form/Form'
+import { useSelector } from 'react-redux'
+import Spinner from '../../components/Shared/Spinner';
 
 function Register() {
+  const {loading,error}=useSelector(state => state.auth);
+   useEffect(() => {
+      if (error) {
+        toast.error(error);
+      }
+    }, [error]);
   return (
     <>
-     <div className="row g-0">
+    {loading?<Spinner/>:(
+       <div className="row g-0">
         <div className="col-md-8 form-banner">
             <img src="./assets/images/banner2.jpg" alt="registerImage" />
         </div>
@@ -12,6 +21,7 @@ function Register() {
             <Form formTitle={'Register'} submitBtn={'Register'} formType={'register'}/>
         </div>
      </div>
+    )}
     </>
   )
 }

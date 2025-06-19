@@ -15,8 +15,18 @@ function Form({formType,submitBtn,formTitle}) {
   return (
     <div>
    <form onSubmit={(e)=>{
-    if(formType==='login') return handleLogin(e,name,role,email,password);
-    else handleRegister(e,email,password,role,organisationName,hospitalName,website,address,phone);
+    if(formType==='login') return handleLogin(e, email, password, role);
+    else if(formType==='register') handleRegister(
+               e,
+              name,
+              role,
+              email,
+              password,
+              phone,
+              organisationName,
+              address,
+              hospitalName,
+              website);
    }}>
     <h1 className='text-center'>{formTitle}</h1>
     <hr/>
@@ -29,7 +39,7 @@ function Form({formType,submitBtn,formTitle}) {
       </div>
        <div className="form-check ms-2">
         <input type="radio" className="form-check-input" name='role' id='adminRadio' value={'admin'} onChange={(e)=>setRole(e.target.value)}/>
-        <label htmlFor="donarRadio" className='form-check-label'>
+        <label htmlFor="adminRadio" className='form-check-label'>
           Admin
         </label>
       </div>
@@ -40,9 +50,9 @@ function Form({formType,submitBtn,formTitle}) {
         </label>
       </div>
        <div className="form-check ms-2">
-        <input type="radio" className="form-check-input" name='role' id='organisationRadio' value={'organisation'} onChange={(e)=>setRole(e.target.value)} />
+        <input type="radio" className="form-check-input" name='role' id='organisationRadio' value={'organization'} onChange={(e)=>setRole(e.target.value)} />
         <label htmlFor="organisationRadio" className='form-check-label'>
-          Organisation
+          Organization
         </label>
       </div>
     </div>
