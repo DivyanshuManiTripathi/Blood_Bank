@@ -3,14 +3,15 @@ import { BiDonateBlood } from "react-icons/bi";
 import { FaUser } from "react-icons/fa";
 import {useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom'
+import { toast } from 'react-toastify';
 const Header = () => {
-  const {user}=useSelector(state=>state.auth)
+  const {user}=useSelector(state=>state.auth);
   const navigate=useNavigate();
   // logout handler
   const handleLogout =()=>{
-      localStorage.clear();
+       localStorage.clear();
        toast.success('Logout Successfully');
-      navigate('/login');
+       navigate('/login');
   }
   return (
     <>
@@ -24,7 +25,8 @@ const Header = () => {
                 <li className="nav-item mx-3">
                     <p className="nav-link">
                         <FaUser />
-                        Welcome {user?.name}
+                        Welcome {user?.name || user?.hospitalName || user?.organizationName} &nbsp;
+                        <span className="badge text-bg-secondary">{user?.role}</span>
                     </p>
                 </li>
                  <li className="nav-item mx-3">
