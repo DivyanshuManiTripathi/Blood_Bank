@@ -11,7 +11,7 @@ const Sidebar = () => {
               {userMenu.map((menu)=>{
                  const isAlive=location.pathname === menu.path;
                  return (
-                  <div className={`menu-item ${isAlive? 'active' : ''}`}>
+                  <div className={`menu-item ${isAlive? 'active' : ''}`} key={menu.name}>
                     <i className={menu.icon}></i>
                     <Link to={menu.path}>{menu.name}</Link>
                   </div>

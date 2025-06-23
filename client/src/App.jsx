@@ -7,16 +7,39 @@ import Register from './pages/auth/Register'
  import { ToastContainer, toast } from 'react-toastify';
 import ProtectedRoute from './components/Routes/ProtectedRoute.jsx'
 import PublicRoute from './components/Routes/PublicRoute.jsx'
+import Donar from './pages/Dashboard/Donar.jsx'
+import Hospitals from './pages/Dashboard/Hospitals.jsx'
+import OrganizationPage from './pages/Dashboard/OrganizationPage.jsx'
 function App() {
   const [count, setCount] = useState(0)
   return (
     <>
     <Routes>
-      <Route path='/' element={
+      <Route path='/hospital' element={
+        <ProtectedRoute>
+        <Hospitals/>
+        </ProtectedRoute>
+        }></Route>
+
+        <Route path='/organization' element={
+        <ProtectedRoute>
+        <OrganizationPage/>
+        </ProtectedRoute>
+        }></Route>
+
+        <Route path='/' element={
         <ProtectedRoute>
         <HomePage/>
         </ProtectedRoute>
         }></Route>
+
+         <Route path='/donar' element={
+        <ProtectedRoute>
+        <Donar/>
+        </ProtectedRoute>
+        }></Route>
+
+
       <Route path='/login' element={
         <PublicRoute>
           <Login/>

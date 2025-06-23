@@ -13,10 +13,10 @@ function HomePage() {
   const getBloodRecords=async()=>{
     try{
       const {data}=await API.get('/inventory/get-inventory')
-       console.log(data);
+    //   console.log(data);
       if(data?.success){
         setData(data?.inventory);
-        console.log(data);
+      //  console.log(data);
       }
     }
     catch{
@@ -61,7 +61,7 @@ function HomePage() {
                     <td>{record.bloodGroup}</td>
                     <td>{record.inventoryType}</td>
                     <td>{record.quantity} (ML)</td>
-                    <td>{record.donarEmail}</td>
+                    <td>{record.email}</td>
                     <td>
                       {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
                     </td>
