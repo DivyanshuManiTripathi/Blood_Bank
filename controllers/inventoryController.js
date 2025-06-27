@@ -80,6 +80,7 @@ const createInventoryController=async(req,res)=>{
 }
 const getInventoryController=async (req,res)=>{
    try{
+    //  console.log("User Id",req.user.userId);
      const inventory=await inventoryModel.find({organization:req.user.userId}).populate('donar').populate('hospital').sort({createdAt:-1});
      return res.status(200).send({
        success:true,
@@ -146,8 +147,17 @@ const getHospitalController=async (req,res)=>{
 // Get ORG profiles
 const getOrganizationController=async (req,res)=>{
    try{
-      const donar=req.body.userId;
-      
+      const donar=req.user.userId;
+      const orgId= await inventoryModel.distinct('organization',{donar});
+      // find org
+      const organizations=await userModel.find({
+         _id:{$in:orgId}
+      })
+      return res.status(200).send({
+         success:true,
+         message:'Org data fetched successfully',
+         organizations,
+      });
    }
    catch(error){
       console.log(error);
@@ -158,4 +168,29 @@ const getOrganizationController=async (req,res)=>{
       })
    }
 }
-module.exports={createInventoryController,getInventoryController, getDonarsController,getHospitalController,getOrganizationController};
+
+// Get ORG for hospital
+const getOrganizationForHospitalController=async (req,res)=>{
+   try{
+      const hospital=req.user.userId;
+      const orgId= await inventoryModel.distinct('organization',{hospital});
+      // find org
+      const organizations=await userModel.find({
+         _id:{$in:orgId}
+      })
+      return res.status(200).send({
+         success:true,
+         message:'Hospital Org data fetched successfully',
+         organizations,
+      });
+   }
+   catch(error){
+      console.log(error);
+      return res.status(500).send({
+         success:false,
+         message:'Error in Hospital Org Api',
+         error
+      })
+   }
+}
+module.exports={createInventoryController,getInventoryController, getDonarsController,getHospitalController,getOrganizationController,getOrganizationForHospitalController};

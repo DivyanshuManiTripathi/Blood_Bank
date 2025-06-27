@@ -2,7 +2,7 @@ import React, { useEffect,useState } from 'react';
 import { useSelector } from 'react-redux';
 import Spinner from '../components/Shared/Spinner';
 import Layout from '../components/Shared/Layout/Layout';
-import { toast } from 'react-toastify'; // ✅ add this
+import { toast } from 'react-toastify'; 
 import Modal from '../components/Shared/modal/Modal';
 import API from '../services/API';
 import moment from 'moment'
@@ -13,7 +13,7 @@ function HomePage() {
   const getBloodRecords=async()=>{
     try{
       const {data}=await API.get('/inventory/get-inventory')
-    //   console.log(data);
+       console.log(data);
       if(data?.success){
         setData(data?.inventory);
       //  console.log(data);
