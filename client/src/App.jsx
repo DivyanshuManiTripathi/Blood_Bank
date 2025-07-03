@@ -10,6 +10,9 @@ import PublicRoute from './components/Routes/PublicRoute.jsx'
 import Donar from './pages/Dashboard/Donar.jsx'
 import Hospitals from './pages/Dashboard/Hospitals.jsx'
 import OrganizationPage from './pages/Dashboard/OrganizationPage.jsx'
+import Consumer from './pages/Dashboard/Consumer.jsx'
+import Donation from './pages/Donation.jsx'
+import Analytics from './pages/Dashboard/Analytics.jsx'
 function App() {
   const [count, setCount] = useState(0)
   return (
@@ -18,6 +21,24 @@ function App() {
       <Route path='/hospital' element={
         <ProtectedRoute>
         <Hospitals/>
+        </ProtectedRoute>
+        }></Route>
+
+        <Route path='/analytics' element={
+        <ProtectedRoute>
+        <Analytics/>
+        </ProtectedRoute>
+        }></Route>
+
+        <Route path='/consumer' element={
+        <ProtectedRoute>
+        <Consumer/>
+        </ProtectedRoute>
+        }></Route>
+
+         <Route path='/donation' element={
+        <ProtectedRoute>
+        <Donation/>
         </ProtectedRoute>
         }></Route>
 

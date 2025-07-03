@@ -15,7 +15,7 @@ app.use(morgan('dev'));
 // routes
 app.use('/api/v1/auth',require('./routes/authRoutes'));
 app.use('/api/v1/inventory',require('./routes/inventoryRoutes'));
-
+app.use('/api/v1/analytics',require('./routes/analyticsRoutes'));
 const PORT=process.env.PORT || 8080;
 app.listen(PORT,()=>{
     console.log(`Server is running in ${process.env.DEV_MODE} mode at port ${process.env.PORT}`);

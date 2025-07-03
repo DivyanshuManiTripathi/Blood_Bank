@@ -78,6 +78,26 @@ const createInventoryController=async(req,res)=>{
     })
    }
 }
+// get hospital blood records
+const getInventoryHospitalController=async (req,res)=>{
+   try{
+    //  console.log("User Id",req.user.userId);
+     const inventory=await inventoryModel.find(req.body.filters).populate('donar').populate('hospital').populate('organization').sort({createdAt:-1});
+     return res.status(200).send({
+       success:true,
+       message:"get hospital consumer records successfully",
+       inventory
+     })
+   }
+   catch(error){
+      console.log(error);
+      return res.status(500).send({
+         success:false,
+         message:"Error in get consumer Inventory",
+         error,
+      })
+   }
+}
 const getInventoryController=async (req,res)=>{
    try{
     //  console.log("User Id",req.user.userId);
@@ -193,4 +213,4 @@ const getOrganizationForHospitalController=async (req,res)=>{
       })
    }
 }
-module.exports={createInventoryController,getInventoryController, getDonarsController,getHospitalController,getOrganizationController,getOrganizationForHospitalController};
+module.exports={createInventoryController,getInventoryController, getDonarsController,getHospitalController,getOrganizationController,getOrganizationForHospitalController,getInventoryHospitalController};
