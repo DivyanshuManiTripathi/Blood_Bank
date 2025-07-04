@@ -13,6 +13,10 @@ import OrganizationPage from './pages/Dashboard/OrganizationPage.jsx'
 import Consumer from './pages/Dashboard/Consumer.jsx'
 import Donation from './pages/Donation.jsx'
 import Analytics from './pages/Dashboard/Analytics.jsx'
+import DonarList from './pages/Admin/DonarList.jsx'
+import HospitalList from './pages/Admin/HospitalList.jsx'
+import OrgList from './pages/Admin/OrgList.jsx'
+import AdminHome from './pages/Admin/AdminHome.jsx'
 function App() {
   const [count, setCount] = useState(0)
   return (
@@ -21,6 +25,30 @@ function App() {
       <Route path='/hospital' element={
         <ProtectedRoute>
         <Hospitals/>
+        </ProtectedRoute>
+        }></Route>
+      
+      <Route path='/admin' element={
+        <ProtectedRoute>
+        <AdminHome/>
+        </ProtectedRoute>
+        }></Route>
+
+         <Route path='/donar-list' element={
+        <ProtectedRoute>
+        <DonarList/>
+        </ProtectedRoute>
+        }></Route>
+
+         <Route path='/hospital-list' element={
+        <ProtectedRoute>
+        <HospitalList/>
+        </ProtectedRoute>
+        }></Route>
+
+         <Route path='/org-list' element={
+        <ProtectedRoute>
+        <OrgList/>
         </ProtectedRoute>
         }></Route>
 

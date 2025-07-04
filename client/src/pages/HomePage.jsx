@@ -1,5 +1,6 @@
 import React, { useEffect,useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import Spinner from '../components/Shared/Spinner';
 import Layout from '../components/Shared/Layout/Layout';
 import { toast } from 'react-toastify'; 
@@ -7,8 +8,9 @@ import Modal from '../components/Shared/modal/Modal';
 import API from '../services/API';
 import moment from 'moment'
 function HomePage() {
-  const { loading, error } = useSelector(state => state.auth);
+  const { loading, error,user } = useSelector(state => state.auth);
   const [data,setData]= useState([]);
+  const navigate=useNavigate();
   // get function
   const getBloodRecords=async()=>{
     try{
@@ -33,6 +35,7 @@ function HomePage() {
  },[])
   return (
     <Layout>
+      {user?.role==='admin' && navigate("/admin")}
       {loading ? <Spinner /> : (
         <>
           <div className="container">
