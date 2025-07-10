@@ -43,8 +43,8 @@ const Donar = () => {
                         </td>
                       </tr>
                     ))}
-                  </tbody>
-                </table>
+            </tbody>
+      </table>
     </Layout>
   )
 }
