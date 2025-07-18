@@ -3,7 +3,7 @@ const bcrypt=require('bcryptjs');
 const jwt=require('jsonwebtoken');
 const registerController=async (req,res)=>{
     try{
-        console.log("yha hu");
+       // console.log("yha hu");
        const existingUser=await userModel.findOne({email:req.body.email});
        // validation
        if(existingUser){

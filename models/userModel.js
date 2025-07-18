@@ -3,7 +3,7 @@ const mongoose=require('mongoose');
 const userSchema=new mongoose.Schema({
  role:{
    type:String,
-   require:[true,'role is required'],
+   required:[true,'role is required'],
    enum:['admin','organization','donar','hospital']
  },
  name:{
@@ -15,7 +15,7 @@ const userSchema=new mongoose.Schema({
  },
  organizationName:{
     type:String,
-    require:function(){
+    required:function(){
         if(this.role==='organization') return true;
         return false;
     }

@@ -21,9 +21,9 @@ app.use('/api/v1/admin', require('./routes/adminRoutes'));
 // Static Folder
 app.use(express.static(path.join(__dirname, './client/dist')))
 // Static Routes
-app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, './client/dist/index.html'));
-})
+// app.get('*', function (req, res) {
+//     res.sendFile(path.join(__dirname, './client/dist/index.html'));
+// });
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is running in ${process.env.DEV_MODE} mode at port ${process.env.PORT}`);
