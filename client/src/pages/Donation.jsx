@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/shared/Layout/Layout'
+import Layout from '../components/Shared/Layout/Layout'
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import API from '../services/API';
