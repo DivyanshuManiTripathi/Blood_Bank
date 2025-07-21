@@ -4,7 +4,7 @@ import API from '../../services/API';
 import moment from 'moment';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import Layout from '../../components/shared/Layout/Layout';
+import Layout from '../../components/Shared/Layout/Layout';
 const Consumer = () => {
  const {user}=useSelector(state=>state.auth);
  const [data,setData]=useState([]);
