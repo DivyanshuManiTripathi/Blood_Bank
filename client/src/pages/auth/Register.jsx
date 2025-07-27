@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import Spinner from '../../components/Shared/Spinner';
 import { toast } from 'react-toastify';
 
-function Register() {
+function Register() {  
   const { loading, error } = useSelector(state => state.auth);
   useEffect(() => {
     if (error) {
