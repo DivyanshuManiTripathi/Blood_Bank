@@ -16,7 +16,7 @@ import Analytics from './pages/Dashboard/Analytics.jsx'
 import DonarList from './pages/Admin/DonarList.jsx'
 import HospitalList from './pages/Admin/HospitalList.jsx'
 import OrgList from './pages/Admin/OrgList.jsx'
-import AdminHome from './pages/Admin/AdminHome.jsx'
+import AdminHome from './pages/Admin/AdminHome.jsx' 
 function App() {
   const [count, setCount] = useState(0)
   return (

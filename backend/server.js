@@ -12,9 +12,10 @@ connectDB();
 // middlewares
 const allowedOrigins = [
   'https://blood-bank-6fkr.vercel.app',  
-  'https://blood-bank-6fkr-5njj6tt1p-divyanshu-mani-tripathis-projects.vercel.app'
-  // 'http://localhost:5173'
-];
+  'https://blood-bank-6fkr-5njj6tt1p-divyanshu-mani-tripathis-projects.vercel.app',
+  'http://localhost:5173',
+  'http://localhost:5174'
+]; 
    
 app.use(cors({
   origin: function (origin, callback) {
@@ -32,10 +33,10 @@ app.use(cors({
 app.use(express.json());
 app.use(morgan('dev'));  
 // routes
-app.use('/api/v1/auth', require('./routes/authRoutes'));
-app.use('/api/v1/inventory', require('./routes/inventoryRoutes'));
-app.use('/api/v1/analytics', require('./routes/analyticsRoutes'));
-app.use('/api/v1/admin', require('./routes/adminRoutes'));
+app.use('/auth', require('./routes/authRoutes'));
+app.use('/inventory', require('./routes/inventoryRoutes'));
+app.use('/analytics', require('./routes/analyticsRoutes'));
+app.use('/admin', require('./routes/adminRoutes'));
 // Static Folder
 app.use(express.static(path.join(__dirname, './client/dist')))
 
