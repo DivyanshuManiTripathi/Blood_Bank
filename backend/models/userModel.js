@@ -13,13 +13,13 @@ const userSchema=new mongoose.Schema({
         return false;
     }
  },
- organizationName:{
-    type:String,
-    required:function(){
-        if(this.role==='organization') return true;
-        return false;
-    }
- },
+//  organizationName:{
+//     type:String,
+//     required:function(){
+//         if(this.role==='organization') return true;
+//         return false;
+//     }
+//  },
  hospitalName:{
     type:String,
     required: function(){

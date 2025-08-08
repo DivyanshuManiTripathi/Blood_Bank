@@ -6,12 +6,12 @@ const connectDB = require('./config/db');
 const path = require('path')
 const app = express();
 // dot config
-dotenv.config();
+dotenv.config(); 
 // mongoDB connection
 connectDB();
 // middlewares
 const allowedOrigins = [
-  'https://blood-bank-i7kw.vercel.app', 
+  'https://blood-bank-urrk.vercel.app', 
   'http://localhost:5173'
 ];
    
@@ -27,8 +27,9 @@ app.use(cors({
 })); 
 
 
+
 app.use(express.json());
-app.use(morgan('dev')); 
+app.use(morgan('dev'));  
 // routes
 app.use('/api/v1/auth', require('./routes/authRoutes'));
 app.use('/api/v1/inventory', require('./routes/inventoryRoutes'));
@@ -43,7 +44,7 @@ app.use(express.static(path.join(__dirname, './client/dist')))
 // }); 
 app.get('/',(req,res)=>{
   console.log("sever is runing") 
-  res.send("hoioiii") 
+ // res.send("hoioiii") 
 }) 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
