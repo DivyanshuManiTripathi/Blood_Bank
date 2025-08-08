@@ -89,7 +89,7 @@ function App() {
         }></Route>
 
 
-      <Route path='/' element={
+      <Route path='/login' element={
         <PublicRoute>
           <Login/>
         </PublicRoute>
