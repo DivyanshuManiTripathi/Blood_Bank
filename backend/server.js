@@ -11,7 +11,7 @@ dotenv.config();
 connectDB();
 // middlewares
 const allowedOrigins = [
-  'https://blood-bank-6fkr.vercel.app/login', 
+  'https://blood-bank-6fkr.vercel.app', 
   'http://localhost:5173'
 ];
    
