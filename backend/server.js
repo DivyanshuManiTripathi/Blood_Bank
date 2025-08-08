@@ -11,8 +11,9 @@ dotenv.config();
 connectDB();
 // middlewares
 const allowedOrigins = [
-  'https://blood-bank-6fkr.vercel.app', 
-  'http://localhost:5173'
+  'https://blood-bank-6fkr.vercel.app',  
+  'https://blood-bank-6fkr-5njj6tt1p-divyanshu-mani-tripathis-projects.vercel.app'
+  // 'http://localhost:5173'
 ];
    
 app.use(cors({
