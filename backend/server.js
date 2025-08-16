@@ -15,7 +15,8 @@ connectDB();
 
 // allowed origins
 const allowedOrigins = [
-  'http://localhost:5173'
+  'http://localhost:5173',
+  'https://blood-bank-3ncy.vercel.app'
 ];
 
 const corsOptions = {
@@ -30,7 +31,7 @@ const corsOptions = {
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 };
 
-// ✅ Apply CORS middleware (this automatically handles OPTIONS requests)
+//  Apply CORS middleware (this automatically handles OPTIONS requests)
 app.use(cors(corsOptions));
 
 // body parser & logger
