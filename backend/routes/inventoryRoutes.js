@@ -17,7 +17,5 @@ router.get('/get-hospitals', authMiddleware, getHospitalController);
 // Get organization records
 router.get('/get-organization', authMiddleware, getOrganizationController);
 // Get organization records
-router.get('/get-organization', authMiddleware, getOrganizationController);
-// Get organization records
 router.get('/get-organization-for-hospital', authMiddleware, getOrganizationForHospitalController);
 module.exports = router;
