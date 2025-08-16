@@ -1,6 +1,6 @@
 import axios from 'axios'
 const API=axios.create({
-    baseURL:import.meta.env.VITE_BASEURL,
+    baseURL:"https://blood-bank-jade.vercel.app",
 })
 API.interceptors.request.use((req)=>{
      if(localStorage.getItem('token')){
